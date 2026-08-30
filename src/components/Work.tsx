@@ -76,9 +76,6 @@ export function Work() {
                 data-work-card
                 className="group border-border bg-card/40 hover:shadow-elegant flex flex-col rounded-2xl border p-7 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2"
               >
-                <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
-                  {c.key === "soon" ? "—" : "01".slice(0, 2)}
-                </span>
                 <h3 className="mt-6 text-2xl font-semibold tracking-[-0.02em] text-foreground">
                   {t(c.title)}
                 </h3>

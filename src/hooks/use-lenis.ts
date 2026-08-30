@@ -1,4 +1,6 @@
 import Lenis from "lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
 import { usePrefersReducedMotion } from "./use-reduced-motion";
 
@@ -29,6 +31,9 @@ export function useLenisScroll() {
     });
     lenisInstance = lenis;
 
+    gsap.registerPlugin(ScrollTrigger);
+    lenis.on("scroll", ScrollTrigger.update);
+
     const raf = (time: number) => {
       lenis.raf(time);
       rafRef.current = requestAnimationFrame(raf);
@@ -37,6 +42,7 @@ export function useLenisScroll() {
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      lenis.off("scroll", ScrollTrigger.update);
       lenis.destroy();
       lenisInstance = null;
     };
