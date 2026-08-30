@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowDown } from "lucide-react";
 import kLogo from "@/assets/kelenpe-k.png.asset.json";
 import { useI18n } from "@/lib/i18n";
 import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
@@ -17,7 +16,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen w-full flex-col overflow-hidden px-6 sm:px-10 lg:px-20"
+      className="relative grid min-h-screen w-full grid-rows-[1fr_auto] overflow-hidden px-6 md:px-12 lg:px-20 xl:px-28"
     >
       {/* Abstract mark, subtle parallax */}
       <motion.img
@@ -28,12 +27,12 @@ export function Hero() {
         className="pointer-events-none absolute -right-24 top-1/2 w-[70vw] max-w-[820px] -translate-y-1/2 select-none sm:-right-16"
       />
 
-      <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center pb-36 sm:pb-40 lg:pb-44">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-start justify-center">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: reduced ? 0 : 0.8, delay: reduced ? 0 : 0.1 }}
-          className="mb-8 font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase"
+          className="mb-6 font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase sm:mb-8"
         >
           <span className="text-ocre">01</span> — {t("hero.label")}
         </motion.p>
@@ -67,18 +66,21 @@ export function Hero() {
             delay: reduced ? 0 : 0.5 + words.length * 0.02,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+          className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg"
         >
           {t("hero.subtitle")}
         </motion.p>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center">
-        <div className="flex flex-col items-center gap-2">
+      {/* Scroll indicator — aligned to the content column */}
+      <div className="relative mx-auto flex w-full max-w-6xl items-end pb-8">
+        <div className="flex flex-col items-start gap-2" aria-hidden="true">
           <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
             {t("hero.scroll")}
           </span>
-          <ArrowDown className="animate-scroll-pulse size-4 text-ocre" />
+          <div className="relative h-12 w-px overflow-hidden bg-foreground/20">
+            <div className="h-full w-full origin-top scale-y-100 bg-ocre motion-safe:animate-scroll-line" />
+          </div>
         </div>
       </div>
     </section>
