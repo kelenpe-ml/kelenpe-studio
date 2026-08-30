@@ -9,7 +9,7 @@ export function Hero() {
   const reduced = usePrefersReducedMotion();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 600], [0, reduced ? 0 : 120]);
-  const opacity = useTransform(scrollY, [0, 500], [1, reduced ? 1 : 0.25]);
+  const opacity = useTransform(scrollY, [0, 500], [0.06, reduced ? 0.06 : 0.02]);
   const rotate = useTransform(scrollY, [0, 600], [0, reduced ? 0 : -6]);
 
   const words = t("hero.title").split(" ");
@@ -25,7 +25,7 @@ export function Hero() {
         alt=""
         aria-hidden="true"
         style={{ y, opacity, rotate }}
-        className="pointer-events-none absolute -right-24 top-1/2 w-[70vw] max-w-[820px] -translate-y-1/2 opacity-[0.05] select-none sm:-right-16"
+        className="pointer-events-none absolute -right-24 top-1/2 w-[70vw] max-w-[820px] -translate-y-1/2 select-none sm:-right-16"
       />
 
       <div className="relative mx-auto w-full max-w-6xl">
