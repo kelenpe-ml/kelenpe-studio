@@ -9,7 +9,7 @@ const dict = {
     "nav.work": "Réalisations",
     "nav.contact": "Contact",
     "nav.menu": "Menu",
-    "hero.title": "Des logiciels pensés pour durer, pas pour impressionner.",
+    "hero.title": "Des logiciels pensés pour durer.",
     "hero.subtitle":
       "Kelenpe conçoit des solutions numériques sur mesure, pensées pour des besoins réels et construites pour fonctionner ici, dans nos réalités.",
     "hero.scroll": "Défiler",
@@ -21,7 +21,7 @@ const dict = {
     "nav.work": "Recent work",
     "nav.contact": "Contact",
     "nav.menu": "Menu",
-    "hero.title": "Software built to last, not to impress.",
+    "hero.title": "Software built to last.",
     "hero.subtitle":
       "Kelenpe designs custom digital solutions, built for real needs and made to work here, in our own realities.",
     "hero.scroll": "Scroll",
