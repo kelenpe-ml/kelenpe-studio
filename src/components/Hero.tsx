@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden px-6 sm:px-10 lg:px-20"
+      className="relative flex min-h-screen w-full flex-col overflow-hidden px-6 sm:px-10 lg:px-20"
     >
       {/* Abstract mark, subtle parallax */}
       <motion.img
@@ -28,7 +28,7 @@ export function Hero() {
         className="pointer-events-none absolute -right-24 top-1/2 w-[70vw] max-w-[820px] -translate-y-1/2 select-none sm:-right-16"
       />
 
-      <div className="relative mx-auto w-full max-w-6xl">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center pb-36 sm:pb-40 lg:pb-44">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -73,7 +73,7 @@ export function Hero() {
         </motion.p>
       </div>
 
-      <div className="absolute inset-x-0 bottom-24 flex justify-center lg:bottom-10">
+      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center">
         <div className="flex flex-col items-center gap-2">
           <span className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
             {t("hero.scroll")}
