@@ -201,3 +201,7 @@
     transition-duration: 0.001ms !important;
   }
 }
+
+@utility shadow-elegant {
+  box-shadow: 0 18px 40px -22px color-mix(in oklab, var(--color-ink) 55%, transparent);
+}

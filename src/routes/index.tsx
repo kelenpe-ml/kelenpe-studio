@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FloatingMenu } from "@/components/FloatingMenu";
 import { Hero } from "@/components/Hero";
+import { Vision } from "@/components/Vision";
+import { Work } from "@/components/Work";
 import { I18nProvider } from "@/lib/i18n";
 import { useLenisScroll } from "@/hooks/use-lenis";
 
@@ -34,8 +36,8 @@ function Index() {
       <main className="bg-background text-foreground">
         <FloatingMenu />
         <Hero />
-        <section id="vision" className="min-h-screen" />
-        <section id="produits" className="min-h-screen" />
+        <Vision />
+        <Work />
         <section id="contact" className="min-h-screen" />
       </main>
     </I18nProvider>
