@@ -28,8 +28,8 @@ export function Hero() {
         className="pointer-events-none absolute -right-24 top-1/2 w-[70vw] max-w-[820px] -translate-y-1/2 select-none sm:-right-16"
       />
 
-      {/* Label — fixed top spacing, independent of content centering */}
-      <div className="relative mx-auto flex w-full max-w-6xl items-start pt-12 md:pt-20 lg:pt-28">
+      {/* Label — fixed, balanced top spacing */}
+      <div className="relative mx-auto flex w-full max-w-6xl items-start pt-12 md:pt-20 lg:pt-28 xl:pt-36">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -40,8 +40,8 @@ export function Hero() {
         </motion.p>
       </div>
 
-      {/* Main content — vertically centered in the remaining space */}
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-start justify-center">
+      {/* Main content — sits just below the label, bottom space flexes */}
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-start justify-start pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-16">
         <h1
           key={lang}
           className="max-w-5xl text-[clamp(2.4rem,7.2vw,5.6rem)] leading-[1.02] font-semibold tracking-[-0.03em] text-foreground"
