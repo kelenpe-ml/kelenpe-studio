@@ -45,8 +45,9 @@ export function Vision() {
 
       items.forEach((item, i) => {
         tl.to(item, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, i * 1.1);
-        if (i > 0) {
-          tl.to(items[i - 1], { opacity: 0.18, duration: 1, ease: "none" }, i * 1.1);
+        const prev = items[i - 1];
+        if (prev) {
+          tl.to(prev, { opacity: 0.18, duration: 1, ease: "none" }, i * 1.1);
         }
       });
 
