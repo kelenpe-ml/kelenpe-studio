@@ -14,6 +14,28 @@ const dict = {
       "Kelenpe conçoit des solutions numériques sur mesure, pensées pour des besoins réels et construites pour fonctionner ici, dans nos réalités.",
     "hero.scroll": "Défiler",
     "hero.label": "Studio logiciel — Bamako, Mali",
+    "vision.title": "Notre vision",
+    "vision.p1a":
+      "La plupart des logiciels sont pensés ailleurs, puis adaptés tant bien que mal à nos réalités.",
+    "vision.p1b":
+      "Kelenpe part du problème concret, quel qu'il soit, pour construire des produits qui fonctionnent vraiment, ici, maintenant.",
+    "vision.p2a": "On ne code pas avant d'avoir compris.",
+    "vision.p2b":
+      "Chaque produit Kelenpe naît d'une architecture pensée, discutée et validée — avant la moindre ligne de code. La solidité avant la vitesse.",
+    "work.title": "Réalisations récentes",
+    "work.boutik.title": "Boutik",
+    "work.boutik.tagline":
+      "Une application simple pour gérer les ventes et le stock au quotidien.",
+    "work.boutik.desc":
+      "Boutik aide à suivre les ventes, le stock et les paiements, avec toutes les données conservées en sécurité, même sans connexion internet.",
+    "work.prodora.title": "Prodora",
+    "work.prodora.tagline": "Une plateforme pour acheter et vendre en ligne, simplement.",
+    "work.prodora.desc":
+      "Prodora met en relation vendeurs et acheteurs, avec une recherche rapide et des recommandations adaptées à chacun.",
+    "work.soon.title": "Prochainement",
+    "work.soon.tagline": "",
+    "work.soon.desc":
+      "D'autres outils sont en préparation, pensés pour s'intégrer au même écosystème.",
   },
   en: {
     "nav.home": "Home",
