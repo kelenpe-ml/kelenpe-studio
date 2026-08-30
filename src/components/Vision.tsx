@@ -12,12 +12,7 @@ export function Vision() {
   const root = useRef<HTMLElement | null>(null);
   const reduced = usePrefersReducedMotion();
 
-  const lines = [
-    t("vision.p1a"),
-    t("vision.p1b"),
-    t("vision.p2a"),
-    t("vision.p2b"),
-  ];
+  const lines = [t("vision.p1a"), t("vision.p1b"), t("vision.p2a"), t("vision.p2b")];
 
   useGSAP(
     () => {
@@ -29,26 +24,22 @@ export function Vision() {
         return;
       }
 
-      gsap.set(items, { opacity: 0.12, y: 24 });
+      gsap.set(items, { opacity: 0.12, y: 20 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: root.current,
           start: "top top",
-          end: () => `+=${items.length * 60}%`,
-          pin: true,
+          end: "bottom bottom",
           scrub: 0.6,
-          anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
 
       items.forEach((item, i) => {
-        tl.to(item, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, i * 1.1);
+        tl.to(item, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, i * 1.15);
         const prev = items[i - 1];
-        if (prev) {
-          tl.to(prev, { opacity: 0.18, duration: 1, ease: "none" }, i * 1.1);
-        }
+        if (prev) tl.to(prev, { opacity: 0.16, duration: 1, ease: "none" }, i * 1.15);
       });
 
       ScrollTrigger.refresh();
@@ -57,26 +48,24 @@ export function Vision() {
   );
 
   return (
-    <section
-      id="vision"
-      ref={root}
-      className="relative flex min-h-screen w-full items-center px-6 md:px-12 lg:px-20 xl:px-28"
-    >
-      <div className="mx-auto w-full max-w-5xl">
-        <p className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
-          <span className="text-ocre">02</span> — {t("vision.title")}
-        </p>
+    <section id="vision" ref={root} className="relative h-[320vh] w-full">
+      <div className="sticky top-0 flex h-screen w-full items-center px-6 md:px-12 lg:px-20 xl:px-28">
+        <div className="mx-auto w-full max-w-5xl">
+          <p className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
+            <span className="text-ocre">02</span> — {t("vision.title")}
+          </p>
 
-        <div className="mt-10 space-y-6 md:mt-14 md:space-y-8">
-          {lines.map((line, i) => (
-            <p
-              key={`${lang}-${i}`}
-              data-vision-line
-              className="max-w-3xl text-[clamp(1.25rem,3.2vw,2.35rem)] leading-[1.28] font-medium tracking-[-0.02em] text-foreground"
-            >
-              {line}
-            </p>
-          ))}
+          <div className="mt-8 space-y-5 md:mt-12 md:space-y-7">
+            {lines.map((line, i) => (
+              <p
+                key={`${lang}-${i}`}
+                data-vision-line
+                className="max-w-3xl text-[clamp(1.05rem,2.6vw,2rem)] leading-[1.3] font-medium tracking-[-0.02em] text-foreground"
+              >
+                {line}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </section>
