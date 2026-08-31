@@ -41,8 +41,10 @@ function Index() {
         <Hero />
         <Vision />
         <Work />
-        <section id="contact" className="min-h-screen" />
+        <Contact />
+        <Footer />
       </main>
+
     </I18nProvider>
   );
 }
