@@ -3,6 +3,9 @@ import { FloatingMenu } from "@/components/FloatingMenu";
 import { Hero } from "@/components/Hero";
 import { Vision } from "@/components/Vision";
 import { Work } from "@/components/Work";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
+
 import { I18nProvider } from "@/lib/i18n";
 import { useLenisScroll } from "@/hooks/use-lenis";
 
@@ -38,8 +41,10 @@ function Index() {
         <Hero />
         <Vision />
         <Work />
-        <section id="contact" className="min-h-screen" />
+        <Contact />
+        <Footer />
       </main>
+
     </I18nProvider>
   );
 }

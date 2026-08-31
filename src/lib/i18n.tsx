@@ -36,7 +36,14 @@ const dict = {
     "work.soon.tagline": "",
     "work.soon.desc":
       "D'autres outils sont en préparation, pensés pour s'intégrer au même écosystème.",
+    "contact.label": "Contact",
+    "contact.title": "Parlons de votre projet",
+    "contact.text":
+      "Une idée, un besoin, un projet à chiffrer ? Kelenpe conçoit aussi des solutions sur mesure.",
+    "contact.cta": "Nous écrire",
+    "footer.tagline": "Kelenpe — Bamako, Mali.",
   },
+
   en: {
     "nav.home": "Home",
     "nav.vision": "Vision",
@@ -68,7 +75,14 @@ const dict = {
     "work.soon.tagline": "",
     "work.soon.desc":
       "More tools are in the works, designed to plug into the same ecosystem.",
+    "contact.label": "Contact",
+    "contact.title": "Let's talk about your project",
+    "contact.text":
+      "Have an idea or a need to scope out? Kelenpe also builds custom solutions.",
+    "contact.cta": "Get in touch",
+    "footer.tagline": "Kelenpe — Bamako, Mali.",
   },
+
 } as const;
 
 export type TranslationKey = keyof (typeof dict)["fr"];
