@@ -1,12 +1,9 @@
-import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { useEffect, useRef } from "react";
 import { useI18n } from "@/lib/i18n";
 import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
+import { useSlowConnection } from "@/hooks/use-connection";
+import { loadGsap } from "@/lib/gsap";
 import type { TranslationKey } from "@/lib/i18n";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const cards: { key: string; title: TranslationKey; tagline: TranslationKey; desc: TranslationKey }[] =
   [
@@ -29,32 +26,68 @@ export function Work() {
   const { t, lang } = useI18n();
   const root = useRef<HTMLElement | null>(null);
   const reduced = usePrefersReducedMotion();
+  const slow = useSlowConnection();
 
-  useGSAP(
-    () => {
-      const items = gsap.utils.toArray<HTMLElement>("[data-work-card]");
-      if (!items.length) return;
+  useEffect(() => {
+    const el = root.current;
+    if (!el) return;
+    const items = Array.from(el.querySelectorAll<HTMLElement>("[data-work-card]"));
+    if (!items.length) return;
 
-      if (reduced) {
-        gsap.set(items, { opacity: 1, y: 0 });
-        return;
-      }
+    if (reduced) {
+      items.forEach((i) => {
+        i.style.opacity = "1";
+        i.style.transform = "none";
+      });
+      return;
+    }
 
-      gsap.fromTo(
-        items,
-        { opacity: 0, y: 48 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          stagger: 0.14,
-          scrollTrigger: { trigger: root.current, start: "top 72%", once: true },
+    if (slow) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              (e.target as HTMLElement).style.opacity = "1";
+              io.unobserve(e.target);
+            }
+          });
         },
+        { rootMargin: "0px 0px -10% 0px" },
       );
-    },
-    { scope: root, dependencies: [lang, reduced] },
-  );
+      items.forEach((i) => {
+        i.style.opacity = "0";
+        i.style.transition = "opacity 600ms ease";
+        io.observe(i);
+      });
+      return () => io.disconnect();
+    }
+
+    let ctx: { revert: () => void } | null = null;
+    let cancelled = false;
+
+    loadGsap().then(({ gsap }) => {
+      if (cancelled) return;
+      ctx = gsap.context(() => {
+        gsap.fromTo(
+          items,
+          { opacity: 0, y: 48 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: "power3.out",
+            stagger: 0.14,
+            scrollTrigger: { trigger: el, start: "top 72%", once: true },
+          },
+        );
+      }, el);
+    });
+
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
+  }, [lang, reduced, slow]);
 
   return (
     <section
