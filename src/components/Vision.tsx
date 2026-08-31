@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 import { useSlowConnection } from "@/hooks/use-connection";
@@ -98,9 +99,15 @@ export function Vision() {
         }
       >
         <div className="mx-auto w-full max-w-5xl">
-          <p className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: reduced ? 0.2 : 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase"
+          >
             <span className="text-ocre">02</span> — {t("vision.title")}
-          </p>
+          </motion.p>
 
           <div className="mt-8 space-y-5 md:mt-12 md:space-y-7">
             {lines.map((line, i) => (

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 import { useSlowConnection } from "@/hooks/use-connection";
@@ -96,9 +97,15 @@ export function Work() {
       className="relative flex min-h-screen w-full items-center px-6 py-24 md:px-12 lg:px-20 xl:px-28"
     >
       <div className="mx-auto w-full max-w-6xl">
-        <p className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: reduced ? 0.2 : 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase"
+        >
           <span className="text-ocre">03</span> — {t("work.title")}
-        </p>
+        </motion.p>
 
         <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
           {cards.map((c) => {
