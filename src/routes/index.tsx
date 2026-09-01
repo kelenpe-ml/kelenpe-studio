@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Cursor } from "@/components/Cursor";
 import { FloatingMenu } from "@/components/FloatingMenu";
 import { Hero } from "@/components/Hero";
 import { Vision } from "@/components/Vision";
@@ -12,13 +13,13 @@ import { useLenisScroll } from "@/hooks/use-lenis";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kelenpe — Studio logiciel à Bamako, Mali" },
+      { title: "Kelenpe — Studio logiciel basé à Bamako" },
       {
         name: "description",
         content:
           "Kelenpe conçoit des solutions numériques sur mesure, pensées pour des besoins réels et construites pour durer.",
       },
-      { property: "og:title", content: "Kelenpe — Studio logiciel à Bamako" },
+      { property: "og:title", content: "Kelenpe — Studio logiciel basé à Bamako" },
       {
         property: "og:description",
         content:
@@ -37,6 +38,7 @@ function Index() {
   return (
     <I18nProvider>
       <main className="bg-background text-foreground">
+        <Cursor />
         <FloatingMenu />
         <Hero />
         <Vision />

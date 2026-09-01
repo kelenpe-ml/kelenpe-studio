@@ -205,3 +205,13 @@
 @utility shadow-elegant {
   box-shadow: 0 18px 40px -22px color-mix(in oklab, var(--color-ink) 55%, transparent);
 }
+
+/* Custom cursor active: hide the native pointer on fine-pointer, motion-friendly devices */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body.custom-cursor,
+  body.custom-cursor a,
+  body.custom-cursor button,
+  body.custom-cursor [role="button"] {
+    cursor: none;
+  }
+}
