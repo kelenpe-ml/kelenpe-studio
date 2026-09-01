@@ -1,11 +1,15 @@
 import { ArrowUpRight, Phone } from "lucide-react";
+import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
+import { Magnetic } from "@/components/Magnetic";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 
 export const EMAIL = "eniac5project@gmail.com";
 export const PHONE_DISPLAY = "+223 72 19 66 36";
 export const PHONE_HREF = "tel:+22372196636";
 
 export function Contact() {
+  const reduced = usePrefersReducedMotion();
   const { t } = useI18n();
 
   return (
