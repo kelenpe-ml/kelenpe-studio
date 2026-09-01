@@ -113,6 +113,17 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = lang;
+    document.title =
+      lang === "fr"
+        ? "Kelenpe — Studio logiciel basé à Bamako"
+        : "Kelenpe — Software studio based in Bamako";
+    const desc =
+      lang === "fr"
+        ? "Kelenpe conçoit des solutions numériques sur mesure, pensées pour des besoins réels et construites pour durer."
+        : "Kelenpe designs custom digital solutions, built for real needs and made to work here, in our own realities.";
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", desc);
   }, [lang]);
 
   const setLang = (l: Lang) => {
