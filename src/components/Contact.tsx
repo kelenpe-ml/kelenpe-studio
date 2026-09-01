@@ -43,13 +43,15 @@ export function Contact() {
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
-          <a
-            href={`mailto:${EMAIL}`}
-            className="group bg-ink text-cream hover:shadow-elegant inline-flex items-center gap-3 rounded-full px-7 py-4 text-sm font-medium transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 active:translate-y-0"
-          >
-            {t("contact.cta")}
-            <ArrowUpRight className="size-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </a>
+          <Magnetic>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="group bg-ink text-cream hover:shadow-elegant inline-flex items-center gap-3 rounded-full px-7 py-4 text-sm font-medium transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 active:translate-y-0"
+            >
+              {t("contact.cta")}
+              <ArrowUpRight className="size-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </a>
+          </Magnetic>
 
           <a
             href={PHONE_HREF}

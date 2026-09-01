@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Cursor } from "@/components/Cursor";
 import { FloatingMenu } from "@/components/FloatingMenu";
 import { Hero } from "@/components/Hero";
 import { Vision } from "@/components/Vision";
