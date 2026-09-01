@@ -41,6 +41,7 @@ export function Cursor() {
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf);
+      document.body.classList.remove("custom-cursor");
     };
   }, [reduced]);
 
