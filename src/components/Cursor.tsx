@@ -11,6 +11,7 @@ export function Cursor() {
     if (reduced) return;
     if (!window.matchMedia("(pointer: fine)").matches) return;
     setEnabled(true);
+    document.body.classList.add("custom-cursor");
 
     let x = 0,
       y = 0,
