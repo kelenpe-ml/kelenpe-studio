@@ -18,13 +18,25 @@ export function Contact() {
       className="relative flex min-h-screen w-full items-center px-6 py-24 md:px-12 lg:px-20 xl:px-28"
     >
       <div className="mx-auto w-full max-w-5xl">
-        <p className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase">
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: reduced ? 0.2 : 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground uppercase"
+        >
           <span className="text-ocre">04</span> — {t("contact.label")}
-        </p>
+        </motion.p>
 
-        <h2 className="mt-8 max-w-3xl text-[clamp(2rem,5.4vw,4rem)] leading-[1.05] font-semibold tracking-[-0.03em] text-foreground">
+        <motion.h2
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: reduced ? 0.2 : 0.7, delay: reduced ? 0 : 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 max-w-3xl text-[clamp(2rem,5.4vw,4rem)] leading-[1.05] font-semibold tracking-[-0.03em] text-foreground"
+        >
           {t("contact.title")}
-        </h2>
+        </motion.h2>
 
         <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           {t("contact.text")}
