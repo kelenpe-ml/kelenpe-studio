@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import kLogo from "@/assets/kelenpe-k.png.asset.json";
 import { useI18n } from "@/lib/i18n";
 import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 
@@ -9,7 +8,7 @@ export function Hero() {
   const reduced = usePrefersReducedMotion();
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 600], [0, reduced ? 0 : 120]);
-  const opacity = useTransform(scrollY, [0, 500], [0.055, reduced ? 0.055 : 0.02]);
+  const opacity = useTransform(scrollY, [0, 500], [0.14, reduced ? 0.14 : 0.06]);
   const rotate = useTransform(scrollY, [0, 600], [0, reduced ? 0 : -6]);
 
   const words = t("hero.title").split(" ");
@@ -19,9 +18,9 @@ export function Hero() {
       id="hero"
       className="relative grid min-h-screen w-full grid-rows-[auto_1fr_auto] overflow-hidden px-6 md:px-12 lg:px-20 xl:px-28"
     >
-      {/* Abstract mark, subtle parallax */}
+      {/* Kelenpe mark watermark, subtle parallax */}
       <motion.img
-        src={kLogo.url}
+        src="/brand/kelenpe-k-watermark.webp"
         alt=""
         aria-hidden="true"
         style={{ y, rotate, opacity }}
