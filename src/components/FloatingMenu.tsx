@@ -37,11 +37,15 @@ export function FloatingMenu() {
     ? { duration: 0 }
     : { type: "spring" as const, stiffness: 320, damping: 32, mass: 0.8 };
 
+  // Hover opens/closes only on devices with real hover; touch uses tap to toggle.
+  const canHover = () =>
+    typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
+
   return (
     <div
       ref={containerRef}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={() => canHover() && setOpen(true)}
+      onMouseLeave={() => canHover() && setOpen(false)}
       className="fixed left-1/2 z-50 -translate-x-1/2 bottom-6 lg:bottom-auto lg:top-6"
     >
       <motion.div
@@ -57,8 +61,8 @@ export function FloatingMenu() {
               layout
               type="button"
               aria-label={t("nav.menu")}
-              aria-expanded={false}
-              onClick={() => setOpen(true)}
+              aria-expanded={open}
+              onClick={() => setOpen((o) => !o)}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
