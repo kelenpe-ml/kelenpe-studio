@@ -85,8 +85,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Solutions numériques sur mesure, conçues pour durer." },
 
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.kelenpe.com/" },
+      { property: "og:site_name", content: "Kelenpe" },
+      { property: "og:image", content: "https://www.kelenpe.com/brand/kelenpe-og-image-1200x630.png" },
+      { property: "og:image:secure_url", content: "https://www.kelenpe.com/brand/kelenpe-og-image-1200x630.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Kelenpe — Studio logiciel basé à Bamako" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:image", content: "https://www.kelenpe.com/brand/kelenpe-og-image-1200x630.png" },
+      {
+        "script:ld+json": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Kelenpe",
+          "url": "https://www.kelenpe.com/",
+          "logo": "https://www.kelenpe.com/brand/kelenpe-logo-square.png",
+          "description": "Studio logiciel basé à Bamako, Mali. Solutions numériques sur mesure.",
+        },
+      },
     ],
     links: [
       {
