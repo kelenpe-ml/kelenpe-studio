@@ -80,6 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Kelenpe — Studio logiciel" },
       { name: "description", content: "Studio logiciel basé à Bamako, Mali. Solutions numériques sur mesure." },
       { name: "author", content: "Kelenpe" },
+      { name: "google-site-verification", content: "bgu8yN9cQfRrrqeHFB1IsGtcWpJA375PKaKdJkBV9F4" },
       { property: "og:title", content: "Kelenpe — Studio logiciel" },
       { property: "og:description", content: "Solutions numériques sur mesure, conçues pour durer." },
 
